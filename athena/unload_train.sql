@@ -10,8 +10,8 @@ UNLOAD (
     CAST(v21 AS VARCHAR) AS v21, CAST(v22 AS VARCHAR) AS v22, CAST(v23 AS VARCHAR) AS v23, CAST(v24 AS VARCHAR) AS v24,
     CAST(v25 AS VARCHAR) AS v25, CAST(v26 AS VARCHAR) AS v26, CAST(v27 AS VARCHAR) AS v27, CAST(v28 AS VARCHAR) AS v28,
     CAST(amount AS VARCHAR) AS amount
-  FROM "fraud-analytics-usw2"."raw"
+  FROM "{DATABASE}"."raw"
   WHERE rand() < 0.8
 )
-TO 's3://fraud-rt-ml-usw2/xgb/train/'
+TO '{S3_BUCKET}'
 WITH (format='CSV');
